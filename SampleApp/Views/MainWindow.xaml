@@ -1,0 +1,29 @@
+﻿<Window x:Class="SampleApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:SampleApp.Views"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:telerik1="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+        xmlns:vm="clr-namespace:SampleApp.ViewModels"
+        Title="MainWindow"
+        Width="400"
+        Height="450"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
+    <StackPanel Margin="5"
+                Orientation="Vertical">
+        <Button Command="{Binding TestCommand}"
+                Content="Test" />
+        <telerik:RadComboBox Margin="0,5,0,0"
+                             ItemsSource="{Binding Items}"
+                             SelectedItem="{Binding Item,
+                                                    Mode=TwoWay}" />
+        <TextBlock Margin="0,5,0,0"
+                   Text="{Binding Item}" />
+    </StackPanel>
+</Window>
